@@ -1,6 +1,9 @@
 import django_filters
 
-from adopciones.models import Fundacion
+from adopciones.models import (
+    Fundacion,
+    Mascota,
+)
 
 
 class FundacionFilter(
@@ -16,4 +19,19 @@ class FundacionFilter(
 
         fields = [
             "is_active",
+        ]
+
+
+class MascotaFilter(
+    django_filters.FilterSet
+):
+
+    class Meta:
+        model = Mascota
+
+        fields = [
+            "especie",
+            "sexo",
+            "estado",
+            "fundacion",
         ]

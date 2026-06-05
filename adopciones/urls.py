@@ -8,9 +8,18 @@ from rest_framework_simplejwt.views import (
 )
 
 from adopciones.views.health import health_check
+
 from adopciones.views.auth import (
     RegisterView,
     LogoutView,
+)
+
+from adopciones.views.fundacion import (
+    FundacionViewSet,
+)
+
+from adopciones.views.mascota import (
+    MascotaViewSet,
 )
 
 from adopciones.serializers.auth import (
@@ -18,6 +27,18 @@ from adopciones.serializers.auth import (
 )
 
 router = DefaultRouter()
+
+router.register(
+    "fundaciones",
+    FundacionViewSet,
+    basename="fundacion"
+)
+
+router.register(
+    "mascotas",
+    MascotaViewSet,
+    basename="mascota"
+)
 
 urlpatterns = [
     path("health/", health_check),
