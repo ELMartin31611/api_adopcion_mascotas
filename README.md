@@ -82,8 +82,8 @@ POST /api/auth/register/
 Body:
 
 {
-  "username": "martin",
-  "password": "12345678"
+  "username": "admin",
+  "password": "admin"
 }
 
 ---
