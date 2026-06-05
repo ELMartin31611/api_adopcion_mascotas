@@ -3,6 +3,9 @@ import django_filters
 from adopciones.models import (
     Fundacion,
     Mascota,
+    SolicitudAdopcion,
+    Rescate, 
+    Donacion
 )
 
 
@@ -35,3 +38,29 @@ class MascotaFilter(
             "estado",
             "fundacion",
         ]
+
+class SolicitudFilter(
+    django_filters.FilterSet
+):
+
+    class Meta:
+        model = SolicitudAdopcion
+
+        fields = [
+            "estado",
+            "mascota",
+        ]
+
+
+class RescateFilter(django_filters.FilterSet):
+
+    class Meta:
+        model = Rescate
+        fields = ["fecha_rescate"]
+
+
+class DonacionFilter(django_filters.FilterSet):
+
+    class Meta:
+        model = Donacion
+        fields = ["fundacion", "metodo_pago"]

@@ -22,6 +22,14 @@ from adopciones.views.mascota import (
     MascotaViewSet,
 )
 
+from adopciones.views.solicitud import (
+    SolicitudAdopcionViewSet,
+)
+
+from adopciones.views.rescate import RescateViewSet
+from adopciones.views.donacion import DonacionViewSet
+
+
 from adopciones.serializers.auth import (
     CustomTokenView,
 )
@@ -39,6 +47,15 @@ router.register(
     MascotaViewSet,
     basename="mascota"
 )
+
+router.register(
+    "solicitudes",
+    SolicitudAdopcionViewSet,
+    basename="solicitud"
+)
+
+router.register("rescates", RescateViewSet, basename="rescate")
+router.register("donaciones", DonacionViewSet, basename="donacion")
 
 urlpatterns = [
     path("health/", health_check),
@@ -73,3 +90,6 @@ urlpatterns = [
         include(router.urls)
     ),
 ]
+
+
+
